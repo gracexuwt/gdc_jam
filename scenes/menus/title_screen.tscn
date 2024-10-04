@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://c5lvmqynn4lye"]
+[gd_scene load_steps=3 format=3 uid="uid://c5lvmqynn4lye"]
+
+[ext_resource type="Script" path="res://scripts/menus/title_screen.gd" id="1_dwhtl"]
+[ext_resource type="Texture2D" uid="uid://d3rw6o5d4ue8q" path="res://assets/art/title_screen.png" id="2_b3ank"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -7,32 +10,49 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dwhtl")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1285.0
+offset_bottom = 724.0
+texture = ExtResource("2_b3ank")
 
 [node name="Start_button" type="Button" parent="."]
-offset_left = 640.0
-offset_top = 103.0
-offset_right = 846.0
-offset_bottom = 163.0
+layout_mode = 0
+offset_left = 919.0
+offset_top = 177.0
+offset_right = 1125.0
+offset_bottom = 237.0
 text = "START"
+script = ExtResource("1_dwhtl")
 
 [node name="Settings_button" type="Button" parent="."]
-offset_left = 640.0
-offset_top = 206.0
-offset_right = 846.0
-offset_bottom = 266.0
+layout_mode = 0
+offset_left = 919.0
+offset_top = 280.0
+offset_right = 1125.0
+offset_bottom = 340.0
 text = "SETTINGS"
 
 [node name="Credits_button" type="Button" parent="."]
-offset_left = 640.0
-offset_top = 310.0
-offset_right = 846.0
-offset_bottom = 370.0
+layout_mode = 0
+offset_left = 919.0
+offset_top = 384.0
+offset_right = 1125.0
+offset_bottom = 444.0
 text = "CREDITS"
 
 [node name="Exit_button" type="Button" parent="."]
-offset_left = 641.0
-offset_top = 415.0
-offset_right = 847.0
-offset_bottom = 475.0
+layout_mode = 0
+offset_left = 920.0
+offset_top = 489.0
+offset_right = 1126.0
+offset_bottom = 549.0
 text = "EXIT
 "
+
+[connection signal="pressed" from="Start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Credits_button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Exit_button" to="." method="_on_exit_button_pressed"]
