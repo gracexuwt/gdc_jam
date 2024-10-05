@@ -1,3 +1,46 @@
-[gd_scene format=3 uid="uid://bpqigkdck2aga"]
+[gd_scene load_steps=5 format=4 uid="uid://bdknfi5q5h6ci"]
+
+[ext_resource type="PackedScene" uid="uid://cubdd8ijfkgmj" path="res://scenes/player/player.tscn" id="1_5f4b7"]
+[ext_resource type="PackedScene" uid="uid://bh8iuykjo85pq" path="res://scenes/characters/hellhound.tscn" id="2_dhqvg"]
+[ext_resource type="PackedScene" uid="uid://csah85wttomxp" path="res://resources/tilemap.tscn" id="3_360rw"]
+[ext_resource type="PackedScene" uid="uid://duyrgungaob8g" path="res://scenes/utilities/cage_physics.tscn" id="4_swgo6"]
 
 [node name="Level1" type="Node2D"]
+
+[node name="Hellhound" parent="." instance=ExtResource("2_dhqvg")]
+position = Vector2(670, 417)
+
+[node name="Hellhound2" parent="." instance=ExtResource("2_dhqvg")]
+position = Vector2(671, 480)
+
+[node name="Hellhound3" parent="." instance=ExtResource("2_dhqvg")]
+position = Vector2(672, 546)
+
+[node name="Hellhound4" parent="." instance=ExtResource("2_dhqvg")]
+position = Vector2(672, 606)
+
+[node name="Player" parent="." instance=ExtResource("1_5f4b7")]
+position = Vector2(1053, 618)
+
+[node name="Tilemap" parent="." instance=ExtResource("3_360rw")]
+tile_map_data = PackedByteArray("AAAGAAUAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAYAAQAAAAAAAAAGAAcAAQAAAAAAAAAGAAgAAQAAAAAAAAAGAAkAAQAAAAAAAAAGAAoAAQAAAAAAAAAIAAQAAQAAAAAAAAAHAAoAAQAAAAAAAAAIAAoAAQAAAAAAAAAJAAoAAQAAAAAAAAAKAAoAAQAAAAAAAAALAAoAAQAAAAAAAAAMAAoAAQAAAAAAAAANAAoAAQAAAAAAAAAOAAoAAQAAAAAAAAAOAAcAAQAAAAAAAAAOAAYAAQAAAAAAAAAOAAUAAQAAAAAAAAAOAAQAAQAAAAAAAAAHAAcAAQAAAAAAAAAJAAcAAQAAAAAAAAALAAcAAQAAAAAAAAAMAAcAAQAAAAAAAAANAAcAAQAAAAAAAAAKAAUAAQAAAAAAAAAKAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAANAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAA=")
+
+[node name="pushable" type="BoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CagePhysics" parent="pushable" instance=ExtResource("4_swgo6")]
+position = Vector2(801, 545)
+collision_mask = 2
+
+[node name="CagePhysics2" parent="pushable" instance=ExtResource("4_swgo6")]
+position = Vector2(673, 480)
+collision_mask = 2
+
+[node name="CagePhysics3" parent="pushable" instance=ExtResource("4_swgo6")]
+position = Vector2(673, 544)
+collision_mask = 2
+
+[node name="CagePhysics4" parent="pushable" instance=ExtResource("4_swgo6")]
+position = Vector2(672, 608)
+collision_mask = 2

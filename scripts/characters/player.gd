@@ -1,9 +1,10 @@
-extends Area2D
+extends CharacterBody2D
+class_name Player
 
 @export var movement_speed = 200
 var screen_size
 
-# Called when the node enters the scene tree for the first time.
+# Called when the node enterss the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
 
@@ -29,12 +30,21 @@ func _process(delta):
 		elif velocity.x < 0:
 			get_node("AnimatedSprite2D").play("walk_left")
 		elif velocity.y > 0:
-			get_node("AnimatedSprite2D").play("walk_up")
-		else:
 			get_node("AnimatedSprite2D").play("walk_down")
+		else:
+			get_node("AnimatedSprite2D").play("walk_up")
 	else:
 		get_node("AnimatedSprite2D").stop()
 		
 	# Update position
-	position += velocity * delta
+	move_and_collide(velocity * delta)
 	position = position.clamp(Vector2.ZERO, screen_size)
+	
+	# Check cage
+	if get_slide_collision_count():
+		check_cage_collision()
+
+func check_cage_collision():
+	var collided = get_slide_collision(0).get_collider()
+	if collided is Cage:
+		collided.push(movement_speed)

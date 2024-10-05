@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://csah85wttomxp"]
+
+[ext_resource type="Texture2D" uid="uid://ctypmpk6ql6ch" path="res://resources/tiles/wall.png" id="1_qsl08"]
+[ext_resource type="Texture2D" uid="uid://dpon0my4u4bt2" path="res://resources/tiles/objects.png" id="2_obpwa"]
+[ext_resource type="Script" path="res://scripts/utility/tilemap.gd" id="3_6u4ka"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idmfh"]
+texture = ExtResource("1_qsl08")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ggs8j"]
+texture = ExtResource("2_obpwa")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_757oy"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 3
+sources/1 = SubResource("TileSetAtlasSource_idmfh")
+sources/2 = SubResource("TileSetAtlasSource_ggs8j")
+
+[node name="Tilemap" type="TileMapLayer"]
+tile_set = SubResource("TileSet_757oy")
+script = ExtResource("3_6u4ka")

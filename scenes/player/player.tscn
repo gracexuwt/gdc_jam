@@ -90,16 +90,24 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4toil"]
-size = Vector2(41, 58)
+size = Vector2(32, 55)
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(637, 373)
+collision_mask = 3
 script = ExtResource("1_ece6d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cvrjr")
-animation = &"walk_down"
+animation = &"walk_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(-2, -1.5)
 shape = SubResource("RectangleShape2D_4toil")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 5000
+limit_bottom = 5000
+position_smoothing_enabled = true

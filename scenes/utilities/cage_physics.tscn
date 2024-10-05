@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://duyrgungaob8g"]
+
+[ext_resource type="PackedScene" uid="uid://d1w3khd6ed4n3" path="res://scenes/utilities/cage.tscn" id="1_0hnwh"]
+[ext_resource type="Script" path="res://scenes/utilities/cage_physics.gd" id="2_wj0fj"]
+
+[node name="CagePhysics" instance=ExtResource("1_0hnwh")]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("2_wj0fj")
