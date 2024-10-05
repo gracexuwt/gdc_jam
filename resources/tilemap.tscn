@@ -1,8 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://csah85wttomxp"]
+[gd_scene load_steps=9 format=3 uid="uid://csah85wttomxp"]
 
+[ext_resource type="Texture2D" uid="uid://kb5y1x5eth5h" path="res://resources/tiles/walkable_wall.png" id="1_13jwf"]
 [ext_resource type="Texture2D" uid="uid://ctypmpk6ql6ch" path="res://resources/tiles/wall.png" id="1_qsl08"]
 [ext_resource type="Texture2D" uid="uid://dpon0my4u4bt2" path="res://resources/tiles/objects.png" id="2_obpwa"]
 [ext_resource type="Script" path="res://scripts/utility/tilemap.gd" id="3_6u4ka"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uavhh"]
+texture = ExtResource("1_13jwf")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idmfh"]
 texture = ExtResource("1_qsl08")
@@ -21,8 +28,11 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 3
+physics_layer_1/collision_layer = 4
+physics_layer_1/collision_mask = 4
 sources/1 = SubResource("TileSetAtlasSource_idmfh")
 sources/2 = SubResource("TileSetAtlasSource_ggs8j")
+sources/0 = SubResource("TileSetAtlasSource_uavhh")
 
 [node name="Tilemap" type="TileMapLayer"]
 tile_set = SubResource("TileSet_757oy")

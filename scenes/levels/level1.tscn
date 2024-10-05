@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bdknfi5q5h6ci"]
+[gd_scene load_steps=12 format=4 uid="uid://bdknfi5q5h6ci"]
 
 [ext_resource type="PackedScene" uid="uid://cubdd8ijfkgmj" path="res://scenes/player/player.tscn" id="1_5f4b7"]
 [ext_resource type="PackedScene" uid="uid://bh8iuykjo85pq" path="res://scenes/characters/hellhound.tscn" id="2_dhqvg"]
@@ -6,9 +6,25 @@
 [ext_resource type="PackedScene" uid="uid://d1w3khd6ed4n3" path="res://scenes/utilities/cage.tscn" id="4_snm71"]
 [ext_resource type="Texture2D" uid="uid://y5l6nl4chgl0" path="res://assets/art/objects/reset.png" id="5_eqc8j"]
 [ext_resource type="Script" path="res://scenes/levels/reset.gd" id="5_ita55"]
+[ext_resource type="Script" path="res://scenes/levels/cat.gd" id="7_dm6pf"]
+[ext_resource type="Texture2D" uid="uid://8br5e31hhvlc" path="res://assets/art/animations/Cat/car.png" id="7_q8n8g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s25j7"]
 size = Vector2(46, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0vve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_q8n8g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehyw1"]
+size = Vector2(46, 48)
 
 [node name="Level1" type="Node2D"]
 
@@ -18,12 +34,15 @@ animate_upon_load = true
 
 [node name="Hellhound2" parent="." instance=ExtResource("2_dhqvg")]
 position = Vector2(671, 480)
+caged = true
 
 [node name="Hellhound3" parent="." instance=ExtResource("2_dhqvg")]
 position = Vector2(672, 546)
+caged = true
 
 [node name="Hellhound4" parent="." instance=ExtResource("2_dhqvg")]
 position = Vector2(672, 606)
+caged = true
 
 [node name="reset" type="Area2D" parent="."]
 position = Vector2(997, 484)
@@ -36,11 +55,11 @@ texture = ExtResource("5_eqc8j")
 position = Vector2(1, 6)
 shape = SubResource("RectangleShape2D_s25j7")
 
+[node name="Tilemap" parent="." instance=ExtResource("3_360rw")]
+tile_map_data = PackedByteArray("AAAGAAUAAAAAAAAAAAAGAAQAAQAAAAAAAAAGAAYAAAAAAAAAAAAGAAcAAQAAAAAAAAAGAAgAAAAAAAAAAAAGAAkAAAAAAAAAAAAGAAoAAQAAAAAAAAAIAAQAAQAAAAAAAAAHAAoAAQAAAAAAAAAIAAoAAQAAAAAAAAAJAAoAAQAAAAAAAAAKAAoAAQAAAAAAAAALAAoAAQAAAAAAAAAMAAoAAQAAAAAAAAANAAoAAQAAAAAAAAAOAAoAAQAAAAAAAAAOAAcAAQAAAAAAAAAOAAQAAQAAAAAAAAAHAAcAAQAAAAAAAAAJAAcAAQAAAAAAAAALAAcAAQAAAAAAAAAMAAcAAQAAAAAAAAANAAcAAQAAAAAAAAAKAAUAAQAAAAAAAAAKAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAANAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAOAAkAAAAAAAAAAAAOAAgAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAA=")
+
 [node name="Player" parent="." instance=ExtResource("1_5f4b7")]
 position = Vector2(1053, 618)
-
-[node name="Tilemap" parent="." instance=ExtResource("3_360rw")]
-tile_map_data = PackedByteArray("AAAGAAUAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAYAAQAAAAAAAAAGAAcAAQAAAAAAAAAGAAgAAQAAAAAAAAAGAAkAAQAAAAAAAAAGAAoAAQAAAAAAAAAIAAQAAQAAAAAAAAAHAAoAAQAAAAAAAAAIAAoAAQAAAAAAAAAJAAoAAQAAAAAAAAAKAAoAAQAAAAAAAAALAAoAAQAAAAAAAAAMAAoAAQAAAAAAAAANAAoAAQAAAAAAAAAOAAoAAQAAAAAAAAAOAAcAAQAAAAAAAAAOAAYAAQAAAAAAAAAOAAUAAQAAAAAAAAAOAAQAAQAAAAAAAAAHAAcAAQAAAAAAAAAJAAcAAQAAAAAAAAALAAcAAQAAAAAAAAAMAAcAAQAAAAAAAAANAAcAAQAAAAAAAAAKAAUAAQAAAAAAAAAKAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAANAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAA=")
 
 [node name="pushable" type="BoxContainer" parent="." groups=["pushable"]]
 offset_right = 40.0
@@ -57,3 +76,17 @@ position = Vector2(672, 544)
 
 [node name="Cage4" parent="pushable" instance=ExtResource("4_snm71")]
 position = Vector2(672, 480)
+
+[node name="Cat" type="CharacterBody2D" parent="."]
+position = Vector2(1074, 328)
+script = ExtResource("7_dm6pf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cat"]
+sprite_frames = SubResource("SpriteFrames_m0vve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ehyw1")
+
+[connection signal="body_entered" from="reset" to="reset" method="_on_body_entered"]
+[connection signal="body_exited" from="reset" to="reset" method="_on_body_exited"]

@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var animate_upon_load : bool
-var caged = false
+@export var caged = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
