@@ -1,18 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1w3khd6ed4n3"]
+[gd_scene load_steps=8 format=3 uid="uid://d1w3khd6ed4n3"]
 
 [ext_resource type="Script" path="res://scenes/utilities/cage.gd" id="1_3oqkw"]
 [ext_resource type="Texture2D" uid="uid://c8565flvgpkeg" path="res://assets/art/objects/cage.png" id="1_bui86"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pfkx"]
-size = Vector2(62, 61)
+size = Vector2(61, 60)
 
-[node name="Cage" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlohi"]
+size = Vector2(22, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrqg2"]
+size = Vector2(24, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqjmk"]
+size = Vector2(50, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgd03"]
+size = Vector2(56, 22)
+
+[node name="Cage" type="CharacterBody2D" groups=["pushable"]]
 position = Vector2(598, 314)
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_3oqkw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_bui86")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_5pfkx")
+
+[node name="right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
+position = Vector2(-21, 1.5)
+shape = SubResource("RectangleShape2D_qlohi")
+
+[node name="left" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
+position = Vector2(20, 1)
+shape = SubResource("RectangleShape2D_qrqg2")
+
+[node name="up" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="up"]
+position = Vector2(-1, 22)
+shape = SubResource("RectangleShape2D_gqjmk")
+
+[node name="bottom" type="Area2D" parent="."]
+position = Vector2(0, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottom"]
+position = Vector2(-1, -46)
+shape = SubResource("RectangleShape2D_wgd03")
+
+[connection signal="body_entered" from="right" to="." method="_on_right_body_entered"]
+[connection signal="body_exited" from="right" to="." method="_on_right_body_exited"]
+[connection signal="body_entered" from="left" to="." method="_on_left_body_entered"]
+[connection signal="body_exited" from="left" to="." method="_on_left_body_exited"]
+[connection signal="body_entered" from="up" to="." method="_on_up_body_entered"]
+[connection signal="body_exited" from="up" to="." method="_on_up_body_exited"]
+[connection signal="body_entered" from="bottom" to="." method="_on_bottom_body_entered"]
+[connection signal="body_exited" from="bottom" to="." method="_on_bottom_body_exited"]

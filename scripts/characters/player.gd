@@ -39,12 +39,3 @@ func _process(delta):
 	# Update position
 	move_and_collide(velocity * delta)
 	position = position.clamp(Vector2.ZERO, screen_size)
-	
-	# Check cage
-	if get_slide_collision_count():
-		check_cage_collision()
-
-func check_cage_collision():
-	var collided = get_slide_collision(0).get_collider()
-	if collided is Cage:
-		collided.push(movement_speed)

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh8iuykjo85pq"]
+[gd_scene load_steps=7 format=3 uid="uid://bh8iuykjo85pq"]
 
+[ext_resource type="Script" path="res://scenes/characters/hellhound.gd" id="1_vo5mh"]
 [ext_resource type="Texture2D" uid="uid://cgrdilvne8j44" path="res://assets/art/animations/Hellhound/1.png" id="1_xe1lm"]
 [ext_resource type="Texture2D" uid="uid://jx5uy8y68a5t" path="res://assets/art/animations/Hellhound/2.png" id="2_t7pyk"]
+[ext_resource type="AudioStream" uid="uid://47nt8kidf41d" path="res://assets/audio/sfx/dog-barking-89717.mp3" id="4_aw6o1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_04ruf"]
 animations = [{
@@ -22,6 +24,8 @@ size = Vector2(51, 44)
 
 [node name="Hellhound" type="Area2D"]
 position = Vector2(654, 298)
+collision_mask = 3
+script = ExtResource("1_vo5mh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_04ruf")
@@ -29,3 +33,9 @@ sprite_frames = SubResource("SpriteFrames_04ruf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_c7xvh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_aw6o1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

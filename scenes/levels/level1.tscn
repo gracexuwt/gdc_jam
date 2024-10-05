@@ -1,14 +1,20 @@
-[gd_scene load_steps=5 format=4 uid="uid://bdknfi5q5h6ci"]
+[gd_scene load_steps=8 format=4 uid="uid://bdknfi5q5h6ci"]
 
 [ext_resource type="PackedScene" uid="uid://cubdd8ijfkgmj" path="res://scenes/player/player.tscn" id="1_5f4b7"]
 [ext_resource type="PackedScene" uid="uid://bh8iuykjo85pq" path="res://scenes/characters/hellhound.tscn" id="2_dhqvg"]
 [ext_resource type="PackedScene" uid="uid://csah85wttomxp" path="res://resources/tilemap.tscn" id="3_360rw"]
-[ext_resource type="PackedScene" uid="uid://duyrgungaob8g" path="res://scenes/utilities/cage_physics.tscn" id="4_swgo6"]
+[ext_resource type="PackedScene" uid="uid://d1w3khd6ed4n3" path="res://scenes/utilities/cage.tscn" id="4_snm71"]
+[ext_resource type="Texture2D" uid="uid://y5l6nl4chgl0" path="res://assets/art/objects/reset.png" id="5_eqc8j"]
+[ext_resource type="Script" path="res://scenes/levels/reset.gd" id="5_ita55"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s25j7"]
+size = Vector2(46, 32)
 
 [node name="Level1" type="Node2D"]
 
 [node name="Hellhound" parent="." instance=ExtResource("2_dhqvg")]
 position = Vector2(670, 417)
+animate_upon_load = true
 
 [node name="Hellhound2" parent="." instance=ExtResource("2_dhqvg")]
 position = Vector2(671, 480)
@@ -19,28 +25,35 @@ position = Vector2(672, 546)
 [node name="Hellhound4" parent="." instance=ExtResource("2_dhqvg")]
 position = Vector2(672, 606)
 
+[node name="reset" type="Area2D" parent="."]
+position = Vector2(997, 484)
+script = ExtResource("5_ita55")
+
+[node name="Sprite2D" type="Sprite2D" parent="reset"]
+texture = ExtResource("5_eqc8j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="reset"]
+position = Vector2(1, 6)
+shape = SubResource("RectangleShape2D_s25j7")
+
 [node name="Player" parent="." instance=ExtResource("1_5f4b7")]
 position = Vector2(1053, 618)
 
 [node name="Tilemap" parent="." instance=ExtResource("3_360rw")]
 tile_map_data = PackedByteArray("AAAGAAUAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAYAAQAAAAAAAAAGAAcAAQAAAAAAAAAGAAgAAQAAAAAAAAAGAAkAAQAAAAAAAAAGAAoAAQAAAAAAAAAIAAQAAQAAAAAAAAAHAAoAAQAAAAAAAAAIAAoAAQAAAAAAAAAJAAoAAQAAAAAAAAAKAAoAAQAAAAAAAAALAAoAAQAAAAAAAAAMAAoAAQAAAAAAAAANAAoAAQAAAAAAAAAOAAoAAQAAAAAAAAAOAAcAAQAAAAAAAAAOAAYAAQAAAAAAAAAOAAUAAQAAAAAAAAAOAAQAAQAAAAAAAAAHAAcAAQAAAAAAAAAJAAcAAQAAAAAAAAALAAcAAQAAAAAAAAAMAAcAAQAAAAAAAAANAAcAAQAAAAAAAAAKAAUAAQAAAAAAAAAKAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAANAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAA=")
 
-[node name="pushable" type="BoxContainer" parent="."]
+[node name="pushable" type="BoxContainer" parent="." groups=["pushable"]]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CagePhysics" parent="pushable" instance=ExtResource("4_swgo6")]
-position = Vector2(801, 545)
-collision_mask = 2
+[node name="Cage" parent="pushable" instance=ExtResource("4_snm71")]
+position = Vector2(800, 544)
 
-[node name="CagePhysics2" parent="pushable" instance=ExtResource("4_swgo6")]
-position = Vector2(673, 480)
-collision_mask = 2
+[node name="Cage2" parent="pushable" instance=ExtResource("4_snm71")]
+position = Vector2(672, 607)
 
-[node name="CagePhysics3" parent="pushable" instance=ExtResource("4_swgo6")]
-position = Vector2(673, 544)
-collision_mask = 2
+[node name="Cage3" parent="pushable" instance=ExtResource("4_snm71")]
+position = Vector2(672, 544)
 
-[node name="CagePhysics4" parent="pushable" instance=ExtResource("4_swgo6")]
-position = Vector2(672, 608)
-collision_mask = 2
+[node name="Cage4" parent="pushable" instance=ExtResource("4_snm71")]
+position = Vector2(672, 480)
