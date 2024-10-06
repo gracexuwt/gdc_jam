@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://2eujoag1cumq"]
+
+[ext_resource type="Texture2D" uid="uid://cm0mbq41lhu8j" path="res://assets/art/objects/inventory-slot.webp" id="1_sbc55"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nc65c"]
+texture = ExtResource("1_sbc55")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_raj81"]
+texture = ExtResource("1_sbc55")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xwfd8"]
+texture = ExtResource("1_sbc55")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_epql4"]
+texture = ExtResource("1_sbc55")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fngbn"]
+texture = ExtResource("1_sbc55")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jiiis"]
+texture = ExtResource("1_sbc55")
+
+[node name="inventory" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 650.0
+offset_right = 825.0
+offset_bottom = 700.0
+theme_override_constants/h_separation = 10
+columns = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="item 1" type="Panel" parent="TextureRect/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nc65c")
+
+[node name="item 2" type="Panel" parent="TextureRect/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_raj81")
+
+[node name="item 3" type="Panel" parent="TextureRect/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xwfd8")
+
+[node name="item 4" type="Panel" parent="TextureRect/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_epql4")
+
+[node name="item 5" type="Panel" parent="TextureRect/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fngbn")
+
+[node name="item 6" type="Panel" parent="TextureRect/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jiiis")
