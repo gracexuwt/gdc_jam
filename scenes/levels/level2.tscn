@@ -23,7 +23,7 @@ card_num = 1
 path = "res://assets/art/objects/card_1.png"
 
 [node name="MemoryCard2" parent="BoxContainer" instance=ExtResource("2_8cgmt")]
-position = Vector2(53, 147)
+position = Vector2(58, 153)
 card_num = 5
 path = "res://assets/art/objects/card_5.png"
 
@@ -58,7 +58,7 @@ card_num = 2
 path = "res://assets/art/objects/card_2.png"
 
 [node name="MemoryCard9" parent="BoxContainer" instance=ExtResource("2_8cgmt")]
-position = Vector2(-96, 146)
+position = Vector2(-94, 152)
 card_num = 4
 path = "res://assets/art/objects/card_4.png"
 

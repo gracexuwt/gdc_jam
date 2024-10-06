@@ -27,6 +27,7 @@ player=""
 pushable=""
 hound=""
 card=""
+coin=""
 
 [input]
 

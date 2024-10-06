@@ -39,3 +39,8 @@ func _process(delta):
 	# Update position
 	move_and_collide(velocity * delta)
 	position = position.clamp(Vector2.ZERO, screen_size)
+	
+func movePortal():
+	var velocity = Vector2.ZERO
+	velocity.x += 1
+	move_and_collide(velocity)
