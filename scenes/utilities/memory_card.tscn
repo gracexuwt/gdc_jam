@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bla6oeff8jbqe"]
+
+[ext_resource type="Script" path="res://scenes/utilities/memory_card.gd" id="1_8y03v"]
+[ext_resource type="Texture2D" uid="uid://dku1080r5p8ml" path="res://assets/art/objects/card_back.png" id="1_fohyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ueqb0"]
+size = Vector2(70, 90)
+
+[node name="MemoryCard" type="Area2D" groups=["card"]]
+position = Vector2(595, 324)
+script = ExtResource("1_8y03v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fohyp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ueqb0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
