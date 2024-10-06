@@ -5,6 +5,8 @@ var won = false
 var time_end = false
 
 func _ready():
+	for p in get_tree().get_nodes_in_group("portal"):
+		p.connect("change", Callable(self, "_on_change"))
 	for coin in get_tree().get_nodes_in_group("coin"):
 		coin.connect("collected", Callable(self, "_on_coin_collected"))
 	get_node("BoxContainer2/TimeLabel").connect("time_end", Callable(self, "_on_timer_timeout"))
@@ -25,3 +27,6 @@ func _on_coin_collected():
 	
 func _on_timer_timeout():
 	time_end = true
+	
+func _on_change():
+	get_tree().change_scene_to_file("res://scenes/menus/title_screen.tscn")

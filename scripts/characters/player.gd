@@ -39,4 +39,5 @@ func _process(delta):
 	# Update position
 	move_and_collide(velocity * delta)
 	position = position.clamp(Vector2.ZERO, screen_size)
+
 	

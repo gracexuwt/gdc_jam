@@ -108,3 +108,4 @@ position = Vector2(-290, -177)
 
 [node name="Player" parent="." instance=ExtResource("1_pfmc2")]
 position = Vector2(340, 194)
+movement_speed = null

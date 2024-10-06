@@ -61,14 +61,14 @@ theme_override_font_sizes/font_size = 35
 script = ExtResource("4_dluxy")
 
 [node name="Portal" parent="." instance=ExtResource("6_co2ej")]
-position = Vector2(-290, -177)
+position = Vector2(-318, -201)
 
 [node name="Portal2" parent="." instance=ExtResource("6_co2ej")]
-position = Vector2(-290, -177)
+position = Vector2(-322, 245)
 scene_path = "res://scenes/menus/title_screen.tscn"
 isEnd = true
 
 [node name="Player" parent="." instance=ExtResource("3_bgt0o")]
-position = Vector2(308, 342)
+position = Vector2(314, 176)
 
 [node name="Timer" type="Timer" parent="."]
