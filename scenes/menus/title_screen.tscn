@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5lvmqynn4lye"]
 
 [ext_resource type="Script" path="res://scripts/menus/title_screen.gd" id="1_dwhtl"]
-[ext_resource type="Texture2D" uid="uid://d3rw6o5d4ue8q" path="res://assets/art/title_screen.png" id="2_b3ank"]
+[ext_resource type="Texture2D" uid="uid://bqarjcaaq0587" path="res://assets/art/title/Title art summoners inferno.png" id="2_4xlmt"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -16,7 +16,7 @@ script = ExtResource("1_dwhtl")
 layout_mode = 0
 offset_right = 1285.0
 offset_bottom = 724.0
-texture = ExtResource("2_b3ank")
+texture = ExtResource("2_4xlmt")
 
 [node name="Start_button" type="Button" parent="."]
 layout_mode = 0
