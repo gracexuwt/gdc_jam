@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnjklw2a1ww3f"]
+[gd_scene load_steps=6 format=3 uid="uid://bnjklw2a1ww3f"]
 
 [ext_resource type="Script" path="res://scenes/utilities/portal.gd" id="1_hnqjb"]
 [ext_resource type="Texture2D" uid="uid://cvutabwly13va" path="res://assets/art/animations/Portal/portal (2).png" id="2_knar5"]
@@ -19,24 +19,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y62o"]
-size = Vector2(53, 60)
+size = Vector2(46, 46)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_07nj2"]
-size = Vector2(44, 21)
-
-[node name="Portal" type="Area2D"]
+[node name="Portal" type="Area2D" groups=["portal"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_hnqjb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(626, 352)
 sprite_frames = SubResource("SpriteFrames_yytu4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(626.5, 351)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["portal"]]
+position = Vector2(626, 358)
 shape = SubResource("RectangleShape2D_8y62o")
-
-[node name="enter" type="CollisionShape2D" parent="."]
-position = Vector2(626, 371.5)
-shape = SubResource("RectangleShape2D_07nj2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
