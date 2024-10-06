@@ -1,6 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://2eujoag1cumq"]
+[gd_scene load_steps=11 format=3 uid="uid://c6i0hh8cjec8q"]
 
 [ext_resource type="Texture2D" uid="uid://cm0mbq41lhu8j" path="res://assets/art/objects/inventory-slot.webp" id="1_sbc55"]
+[ext_resource type="Texture2D" uid="uid://doqbwq53l74fk" path="res://assets/art/objects/signet.png" id="2_qa1gb"]
+[ext_resource type="Texture2D" uid="uid://6slk3pxw335t" path="res://assets/art/objects/signet (2).png" id="3_en0pr"]
+[ext_resource type="Texture2D" uid="uid://csyiy4k56wmx7" path="res://assets/art/objects/signet (3).png" id="4_3exxy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nc65c"]
 texture = ExtResource("1_sbc55")
@@ -70,3 +73,21 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_fngbn")
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jiiis")
+
+[node name="Signet" type="Sprite2D" parent="TextureRect"]
+visible = false
+position = Vector2(499.75, 674.75)
+scale = Vector2(0.476564, 0.476564)
+texture = ExtResource("2_qa1gb")
+
+[node name="Signet(2)" type="Sprite2D" parent="TextureRect"]
+visible = false
+position = Vector2(559.25, 674.25)
+scale = Vector2(0.460937, 0.460937)
+texture = ExtResource("3_en0pr")
+
+[node name="Signet(3)" type="Sprite2D" parent="TextureRect"]
+visible = false
+position = Vector2(620.5, 674.5)
+scale = Vector2(0.484375, 0.484375)
+texture = ExtResource("4_3exxy")
