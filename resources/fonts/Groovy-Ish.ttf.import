@@ -1,0 +1,39 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://1v7f2ydag61m"
+path="res://.godot/imported/Groovy-Ish.ttf-81f947a7d6579133049d458a768b2b2f.fontdata"
+
+[deps]
+
+source_file="res://resources/fonts/Groovy-Ish.ttf"
+dest_files=["res://.godot/imported/Groovy-Ish.ttf-81f947a7d6579133049d458a768b2b2f.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=0
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=2
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0)
+}]
+language_support={}
+script_support={}
+opentype_features={}
