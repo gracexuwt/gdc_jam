@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 			won = true
 			print("success")
 			# cutscene here
+			get_node("Portal2").showPortal()
 	pass
 
 func _on_coin_collected():

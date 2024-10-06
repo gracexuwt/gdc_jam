@@ -12,7 +12,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if success_matches >= 8:
-		print("success")
+		#cutscene here
+		get_node("BoxContainer/Portal2").showPortal()
 	else:
 		for card in get_tree().get_nodes_in_group("card"):
 			if card.isMatch:
