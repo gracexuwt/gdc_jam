@@ -56,4 +56,3 @@ func _process(delta):
 		var result = get_world_2d().direct_space_state.intersect_ray(query)
 		if !result.is_empty():
 			result.get("collider").start_dialogue()
-			
