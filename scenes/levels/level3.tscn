@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://b6r0qo5wd137"]
+[gd_scene load_steps=7 format=4 uid="uid://b6r0qo5wd137"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_3.gd" id="1_3ewia"]
 [ext_resource type="PackedScene" path="res://scenes/utilities/coin.tscn" id="2_8e7rs"]
 [ext_resource type="PackedScene" uid="uid://csah85wttomxp" path="res://resources/tilemap.tscn" id="2_eknbd"]
 [ext_resource type="PackedScene" uid="uid://cubdd8ijfkgmj" path="res://scenes/player/player.tscn" id="3_bgt0o"]
+[ext_resource type="Script" path="res://scenes/levels/time_label.gd" id="4_dluxy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xxvac"]
 
@@ -58,6 +59,13 @@ offset_bottom = 66.0
 text = "Coins Collected: 0"
 label_settings = SubResource("LabelSettings_xxvac")
 autowrap_mode = 2
+
+[node name="TimeLabel" type="Label" parent="BoxContainer2"]
+offset_left = 40.0
+offset_top = 49.0
+offset_right = 80.0
+offset_bottom = 72.0
+script = ExtResource("4_dluxy")
 
 [node name="Player" parent="." instance=ExtResource("3_bgt0o")]
 position = Vector2(308, 342)
