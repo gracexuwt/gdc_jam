@@ -3,6 +3,8 @@ class_name Player
 
 @export var movement_speed = 200
 var screen_size
+var last_input
+var moveable = true
 
 # Called when the node enterss the scene tree for the first time.
 func _ready():
@@ -11,15 +13,24 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if (get_node("%Dialogue").initialized):
+		moveable = false
+		return		
+	
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("right"):
 		velocity.x += 1
+		last_input = Vector2.RIGHT
 	if Input.is_action_pressed("left"):
 		velocity.x -= 1
+		last_input = Vector2.LEFT
 	if Input.is_action_pressed("down"):
 		velocity.y += 1
+		last_input = Vector2.DOWN
 	if Input.is_action_pressed("up"):
 		velocity.y -= 1
+		last_input = Vector2.UP
+	if velocity != Vector2.ZERO: moveable = true
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * movement_speed
@@ -39,3 +50,10 @@ func _process(delta):
 	# Update position
 	move_and_collide(velocity * delta)
 	position = position.clamp(Vector2.ZERO, screen_size)
+
+	if moveable && (Input.is_key_pressed(KEY_SPACE) || Input.is_key_pressed(KEY_ENTER)):
+		var query = PhysicsRayQueryParameters2D.create(position, position + last_input * 100)
+		var result = get_world_2d().direct_space_state.intersect_ray(query)
+		if !result.is_empty():
+			result.get("collider").start_dialogue()
+			

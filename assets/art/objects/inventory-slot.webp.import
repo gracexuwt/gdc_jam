@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv5rips7bhljx"
-path="res://.godot/imported/portrait-1.png-ee6c26e90c539c3d239f323cc4822bd6.ctex"
+uid="uid://cm0mbq41lhu8j"
+path="res://.godot/imported/inventory-slot.webp-087e0ec694e3ef9fd3973fae64f3ff6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/ui/portrait-1.png"
-dest_files=["res://.godot/imported/portrait-1.png-ee6c26e90c539c3d239f323cc4822bd6.ctex"]
+source_file="res://assets/art/objects/inventory-slot.webp"
+dest_files=["res://.godot/imported/inventory-slot.webp-087e0ec694e3ef9fd3973fae64f3ff6c.ctex"]
 
 [params]
 

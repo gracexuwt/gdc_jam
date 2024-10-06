@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bla6oeff8jbqe"]
+[gd_scene load_steps=4 format=3 uid="uid://ut7ap25tnnnf"]
 
 [ext_resource type="Script" path="res://scenes/utilities/memory_card.gd" id="1_8y03v"]
 [ext_resource type="Texture2D" uid="uid://dku1080r5p8ml" path="res://assets/art/objects/card_back.png" id="1_fohyp"]
