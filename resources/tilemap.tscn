@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://csah85wttomxp"]
+[gd_scene load_steps=42 format=3 uid="uid://csah85wttomxp"]
 
 [ext_resource type="Texture2D" uid="uid://kb5y1x5eth5h" path="res://resources/tiles/walkable_wall.png" id="1_13jwf"]
 [ext_resource type="Texture2D" uid="uid://ctypmpk6ql6ch" path="res://resources/tiles/wall.png" id="1_qsl08"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://n3emlyw6qtce" path="res://resources/tiles/Wall_topRight.png" id="9_r13rb"]
 [ext_resource type="Texture2D" uid="uid://cfn6jnt7a5358" path="res://resources/tiles/Metal_plate.png" id="10_7wpti"]
 [ext_resource type="Texture2D" uid="uid://lkr6l85m2x46" path="res://resources/tiles/Table.png" id="11_yt7d1"]
+[ext_resource type="Texture2D" uid="uid://cu1gebxmph74o" path="res://resources/tiles/MagmaBlock.png" id="12_51km1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uavhh"]
 texture = ExtResource("1_13jwf")
@@ -85,6 +86,11 @@ texture = ExtResource("11_yt7d1")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d8281"]
+texture = ExtResource("12_51km1")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ggs8j"]
 texture = ExtResource("2_obpwa")
@@ -154,6 +160,7 @@ sources/15 = SubResource("TileSetAtlasSource_r4kxa")
 sources/16 = SubResource("TileSetAtlasSource_26eyc")
 sources/17 = SubResource("TileSetAtlasSource_fqkqk")
 sources/18 = SubResource("TileSetAtlasSource_4gfhp")
+sources/19 = SubResource("TileSetAtlasSource_d8281")
 
 [node name="Tilemap" type="TileMapLayer"]
 tile_set = SubResource("TileSet_757oy")

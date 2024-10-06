@@ -61,3 +61,5 @@ autowrap_mode = 2
 
 [node name="Player" parent="." instance=ExtResource("3_bgt0o")]
 position = Vector2(308, 342)
+
+[node name="Timer" type="Timer" parent="."]
