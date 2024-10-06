@@ -1,3 +1,3 @@
-main character;hi hows it going
-main character;im the main character
+mc;hi hows it going
+mc;im the main character
 demon;im the demon

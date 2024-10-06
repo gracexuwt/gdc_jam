@@ -1,5 +1,6 @@
 [gd_scene load_steps=22 format=4 uid="uid://bdknfi5q5h6ci"]
 
+
 [ext_resource type="PackedScene" uid="uid://cubdd8ijfkgmj" path="res://scenes/player/player.tscn" id="1_5f4b7"]
 [ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_w72ye"]
 [ext_resource type="PackedScene" uid="uid://bh8iuykjo85pq" path="res://scenes/characters/hellhound.tscn" id="2_dhqvg"]
