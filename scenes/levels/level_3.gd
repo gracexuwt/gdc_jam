@@ -21,10 +21,6 @@ func _process(delta: float) -> void:
 
 func _on_coin_collected():
 	coins += 1
-	update_score()
-
-func update_score():
-	get_node("BoxContainer2/ScoreLabel").text = "Coins Collected: %d" % coins
 	
 func _on_timer_timeout():
 	time_end = true

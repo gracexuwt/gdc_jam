@@ -5,8 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://csah85wttomxp" path="res://resources/tilemap.tscn" id="2_eknbd"]
 [ext_resource type="PackedScene" uid="uid://cubdd8ijfkgmj" path="res://scenes/player/player.tscn" id="3_bgt0o"]
 [ext_resource type="Script" path="res://scenes/levels/time_label.gd" id="4_dluxy"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_xxvac"]
+[ext_resource type="FontFile" uid="uid://1v7f2ydag61m" path="res://resources/fonts/Groovy-Ish.ttf" id="4_x1q6d"]
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_3ewia")
@@ -51,20 +50,13 @@ position = Vector2(568, 144)
 
 [node name="BoxContainer2" type="CanvasLayer" parent="."]
 
-[node name="ScoreLabel" type="Label" parent="BoxContainer2"]
-offset_left = 38.0
-offset_top = 20.0
-offset_right = 221.0
-offset_bottom = 66.0
-text = "Coins Collected: 0"
-label_settings = SubResource("LabelSettings_xxvac")
-autowrap_mode = 2
-
 [node name="TimeLabel" type="Label" parent="BoxContainer2"]
 offset_left = 40.0
 offset_top = 49.0
 offset_right = 80.0
 offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("4_x1q6d")
+theme_override_font_sizes/font_size = 35
 script = ExtResource("4_dluxy")
 
 [node name="Player" parent="." instance=ExtResource("3_bgt0o")]
